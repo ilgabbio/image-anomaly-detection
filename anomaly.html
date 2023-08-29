@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Generative VS Discriminative ML models</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="./css/impress-common.css" rel="stylesheet" />
+        <link href="./css/presentation.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="impress" data-transition-duration="500" 
+             data-width="1024" data-height="768" data-max-scale="3">
+            <div id="Deep-field" class="step skip background" 
+                 data-x="15000" data-y="3000" data-z="-500" data-scale="30">
+                <img src="images/background.png" width="900"/>
+            </div>
+
+            <div id="Overview" class="step" data-x="15000" data-y="2000" data-scale="20">
+                <h1>
+                    Generative Deep Neural Models
+                </h1>
+            </div>
+
+            <div id="Agenda" class="step agenda" data-x="5000" data-y="-2200">
+                <h1>Agenda</h1>
+                <ul>
+                    <li>The problem</li>
+                    <li>Some approaches<li>
+                    <li>Challenges in the industrial applications</li>
+                </ul>
+            </div>
+
+            <!-- Definition -->
+
+            <div id="Anomaly-Detection-problem" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Anomaly Detection: the problem</h1>
+                <center>
+                </center>
+            </div>
+
+            <div id="Anomaly-Detection-challenges" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Anomaly Detection: some challenges</h1>
+                <center>
+                </center>
+            </div>
+
+            <div id="Anomaly-Detection-probability" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Anomaly Detection: a propabilistic view</h1>
+                <center>
+                </center>
+            </div>
+            
+            <div id="Anomaly-Detection-approaches" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Anomaly Detection: some approaches</h1>
+                <center>
+                </center>
+            </div>
+
+            <!-- Approach: generative -->
+
+            <!-- Generative: Autoencoders -->
+
+            <!-- Generative: BiGAN/CBiGAN -->
+
+            <!-- Approach: discriminative -->
+
+            <!-- Discriminative: defects recognition -->
+
+            <!-- Discriminative: comparison in feature space -->
+
+            <!-- Discriminative: nn built-in comparison -->
+
+            <!-- Challenges: invariants (position, orientation, light) -->
+
+            <!-- Challenges: position dependency -->
+
+            <!-- Challenges: few-shots.. are not few -->
+
+            <!-- Challenges: complex scenes -->
+
+            <!-- Challenges: moving parts -->
+
+            <!-- Conclusions -->
+
+            <div id="Conclusions" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Conclusions</h1>
+                <h2>Deep Learning in the industry</h2>
+                <center style="font-size: 130%; margin-top: 70px;">
+                    <br/>
+                    Anomaly Detection becoming more reliable.
+                    <br/>
+                    Models becoming more flexible.
+                </center>
+                <center style="font-size: 500%; color: white; margin-top: 70px;">
+                    Qs?
+                </center>
+            </div>
+
+            <!--Scaling out  -->
+            <div id="Empty" class="step end" data-x="15000" data-y="2000" data-scale="20">
+            </div>
+
+        </div>
+
+        <div id="impress-toolbar"></div>
+        <div class="impress-progressbar"><div></div></div>
+        <div class="impress-progress"></div>
+
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+          },
+          TeX: {
+            Macros: {
+              energy: "e",
+              eqby: ["\\stackrel{#1}{=}",1],
+            }
+          }
+          });
+        </script>
+        <script type="text/javascript" src="js/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="js/impress.js"></script>
+
+        <script>
+            impress().init();
+            adjustLastSupper();
+        </script>
+    </body>
+</html>
