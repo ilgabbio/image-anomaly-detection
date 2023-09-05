@@ -24,42 +24,96 @@
                 <h1>Agenda</h1>
                 <ul>
                     <li>The problem</li>
-                    <li>Some approaches:</li>
-                    <ul>
-                        <li>Generative</li>
-                        <li>Discriminative</li>
-                    </ul>
                     <li>Challenges in the industrial applications</li>
+                    <li>Some approaches</li>
+                    <li>Training</li>
+                    <li>Conclusions</li>
                 </ul>
             </div>
 
             <!-- Definition -->
 
             <div id="Anomaly-Detection-problem-industry" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Anomaly Detection on proucts</h1>
+                <h1>Anomaly Detection on products</h1>
                 <center>
-                    Objects with random pose:<br/>
+                    &nbsp;
+                    Objects and textures with random poses:<br/>
                     <img src="images/anomalies_industry.png" width="800"/><br/>
                 </center>
             </div>
 
             <div id="Anomaly-Detection-problem-cosmetic" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Example in the cosmetic</h1>
+                &nbsp;<br/>
                 <center>
                     High target variability:<br/>
-                    <img src="images/anomalies_cosmetic.jpeg" width="900"/><br/>
+                    <img src="images/anomalies_cosmetic.png" width="900"/>
+                    <cit>Photo from <a href="http://yourinvisiblecrown.blogspot.com/2012/05/what-does-your-lipstick-shape-say-about.html">Your invisible crown</a>: personality test</cit>
                 </center>
             </div>
 
             <div id="Anomaly-Detection-problem-pharma" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Example in the pharma</h1>
+                &nbsp;<br/>
+                &nbsp;<br/>
                 <center>
                     Environment conditions and moving parts:<br/>
-                    <img src="images/anomalies_clearance.png" width="550"/><br/>
+                    &nbsp;<br/>
+                    <img src="images/anomalies_clearance.png" width="900"/><br/>
                 </center>
             </div>
 
-            <div id="Anomaly-Detection-challenges" class="step" data-rel-x="1500" data-rel-y="0">
+            <!-- Challenges: invariants (position, orientation, light) -->
+
+            <div id="Challenges-invariants" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Challenges: invariants</h1>
+                &nbsp;<br/>
+                <ul>
+                    <li>Pose (position, orientation)</li>
+                    <li>Lighting conditions (illumination, reflects)</li>
+                </ul>
+                &nbsp;<br/>
+                <center>
+                    <img src="images/challenges_invariants.png" width="800"/><br/>
+                </center>
+            </div>
+
+            <!-- Challenges: position dependency -->
+
+            <div id="Challenges-position" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Not completely invariant to pose</h1>
+                &nbsp;<br/>
+                <center>
+                    Some legit patterns can be anomalies in wrong positions:<br/>
+                    &nbsp;<br/>
+                    <img src="images/challenges_position.png" width="800"/>
+                </center>
+            </div>
+
+            <!-- Challenges: few-shots.. are not few -->
+
+            <div id="Challenges-dataset" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Sustainability</h1>
+                &nbsp;<br/>
+                <center>
+                    Canot train one model per product:
+                    <img src="images/challenges_variability.png" width="800"/><br/>
+                </center>
+            </div>
+
+            <!-- Challenges: complex scenes -->
+
+            <div id="Challenges-complex-scenes" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1></h1>
+                &nbsp;<br/>
+                <center>
+                    <img src=".png" width="800"/><br/>
+                </center>
+            </div>
+
+            <!-- Challenges: moving parts -->
+
+            <div id="Challenges-other" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Some other challenges</h1>
                 <ul>
                     <li>Simple: easy/fast to configure/train</li>
@@ -73,43 +127,92 @@
                 </center>
             </div>
 
-            <!-- Approach: overall -->
+            <!-- Probabilistic view -->
 
-            <div id="Anomaly-Detection-approaches" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Anomaly Detection: some approaches</h1>
+            <div id="Anomaly-Detection-probability_idea" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>A propabilistic view</h1>
+                &nbsp;<br/>
+                &nbsp;<br/>
                 <center>
+                    <img src="images/basic_prob_idea.png" width="900"/>
                 </center>
             </div>
 
-            <div id="Anomaly-Detection-probability" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Anomaly Detection: a propabilistic view</h1>
+            <div id="Anomaly-Detection-probability_nebula" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>A more realistic view</h1>
                 <center>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Nursery_of_New_Stars_-_GPN-2000-000972.jpg/1024px-Nursery_of_New_Stars_-_GPN-2000-000972.jpg" width="500"/>
+                    <did><a href="https://it.wikipedia.org/wiki/Nebulosa#/media/File:Nursery_of_New_Stars_-_GPN-2000-000972.jpg">Wikipedia</a></did>
                 </center>
             </div>
-            
-            <!-- Approach: generative -->
 
-            <!-- Generative: Autoencoders -->
-
-            <!-- Generative: BiGAN/CBiGAN -->
+            <div id="Anomaly-Detection-embedding" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Images Embedding</h1>
+                Idea: embedding images in a space that is:
+                <ul>
+                    <li>lower-dimensional</li>
+                    <li>well-structured</li>
+                </ul>
+                <center>
+                    <img
+                        src="https://www.researchgate.net/profile/Johan-Paratte/publication/313857391/figure/fig3/AS:669562886430722@1536647640091/MNIST-visualisation-using-the-Compressive-Embedding-method-with-t-SNE-as-the-inner.ppm"
+                        width="700"
+                    />
+                    <cit>Compressive Embedding and Visualization using Graphs</cit>
+                </center>
+            </div>
 
             <!-- Approach: discriminative -->
 
-            <!-- Discriminative: defects recognition -->
+            <div id="Discriminative" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Discriminative Anomaly Detection</h1>
+                <center>
+                    <img src="images/discriminative_brain.png" width="700"/>
+                </center>
+            </div>
 
-            <!-- Discriminative: comparison in feature space -->
+            <!-- Discriminative: One-class classification -->
 
-            <!-- Discriminative: nn built-in comparison -->
+            <div id="Discriminative-OCC" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>One Class Classification (OCC)</h1>
+                <center>
+                    <img src="images/discriminative_occ.png" width="900"/>
+                    <cit>Deep Industrial Image Anomaly Detection: A Survey</cit>
+                </center>
+            </div>
 
-            <!-- Challenges: invariants (position, orientation, light) -->
+            <!-- Discriminative: Teacher-student -->
 
-            <!-- Challenges: position dependency -->
+            <!-- Discriminative: Distribution mapping -->
 
-            <!-- Challenges: few-shots.. are not few -->
+            <!-- Discriminative: memory bank -->
 
-            <!-- Challenges: complex scenes -->
+            <!-- Discriminative: Change Detection -->
 
-            <!-- Challenges: moving parts -->
+            <!-- Approach: generative -->
+
+            <div id="Generative" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Generative Anomaly Detection (reconstruction based)</h1>
+                <center>
+                    <img src="images/generative_brain.png" width="900"/>
+                </center>
+            </div>
+
+            <!-- Generative: Autoencoders -->
+
+            <!-- Generative: GAN (BiGAN/CBiGAN) -->
+
+            <!-- Generative: ViT-based -->
+
+            <!-- Training: overview -->
+
+            <!-- Training: losses -->
+
+            <!-- Training: augmentations -->
+
+            <!-- Training: SSL -->
+
+            <!-- Training: Pretraining -->
 
             <!-- Conclusions -->
 
