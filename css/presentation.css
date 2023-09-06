@@ -81,6 +81,9 @@ rep, cit {
 cit {
     margin: 5px 20px;
 }
+cit::before, cit::after {
+    content: "\"";
+}
 
 rep {
     margin: 0;

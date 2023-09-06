@@ -38,7 +38,8 @@
                 <center>
                     &nbsp;
                     Objects and textures with random poses:<br/>
-                    <img src="images/anomalies_industry.png" width="800"/><br/>
+                    <img src="images/anomalies_industry.png" width="700"/><br/>
+                    <cit>The MVTec Anomaly Detection Dataset:<br/>A Comprehensive Real-World Dataset for Unsupervised Anomaly Detection</cit>
                 </center>
             </div>
 
@@ -69,7 +70,7 @@
                 <h1>Challenges: invariants</h1>
                 &nbsp;<br/>
                 <ul>
-                    <li>Pose (position, orientation)</li>
+                    <li>Pose (position in the image, 3d orientation)</li>
                     <li>Lighting conditions (illumination, reflects)</li>
                 </ul>
                 &nbsp;<br/>
@@ -84,7 +85,7 @@
                 <h1>Not completely invariant to pose</h1>
                 &nbsp;<br/>
                 <center>
-                    Some legit patterns can be anomalies in wrong positions:<br/>
+                    Legit patterns are anomalies if found in wrong positions:<br/>
                     &nbsp;<br/>
                     <img src="images/challenges_position.png" width="800"/>
                 </center>
@@ -93,21 +94,11 @@
             <!-- Challenges: few-shots.. are not few -->
 
             <div id="Challenges-dataset" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Sustainability</h1>
+                <h1>Generality</h1>
                 &nbsp;<br/>
                 <center>
-                    Canot train one model per product:
+                    Sometimes, training one model per product is not feasible:
                     <img src="images/challenges_variability.png" width="800"/><br/>
-                </center>
-            </div>
-
-            <!-- Challenges: complex scenes -->
-
-            <div id="Challenges-complex-scenes" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1></h1>
-                &nbsp;<br/>
-                <center>
-                    <img src=".png" width="800"/><br/>
                 </center>
             </div>
 
@@ -116,10 +107,10 @@
             <div id="Challenges-other" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Some other challenges</h1>
                 <ul>
-                    <li>Simple: easy/fast to configure/train</li>
-                    <li>Real-time: fast model evaluation</li>
-                    <li>Cheap: one system, many cameras</li>
-                    <li>General: one model to rule them all!</li>
+                    <li><b>Simple:      </b>easy/fast to configure/train</li>
+                    <li><b>Real-time:   </b>fast model evaluation</li>
+                    <li><b>Cheap:       </b>one system, many cameras</li>
+                    <li><b>General:     </b>one model to rule them all!</li>
                 </ul>
                 <br/>
                 <center>
@@ -147,37 +138,92 @@
             </div>
 
             <div id="Anomaly-Detection-embedding" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Images Embedding</h1>
-                Idea: embedding images in a space that is:
+                <h1>Images Embeddings</h1>
                 <ul>
-                    <li>lower-dimensional</li>
-                    <li>well-structured</li>
+                    <li>Embed images in a lower-dimensional well-structured space;</li>
+                    <li>perform one-class classification there (OCC).</li>
                 </ul>
                 <center>
-                    <img
-                        src="https://www.researchgate.net/profile/Johan-Paratte/publication/313857391/figure/fig3/AS:669562886430722@1536647640091/MNIST-visualisation-using-the-Compressive-Embedding-method-with-t-SNE-as-the-inner.ppm"
-                        width="700"
-                    />
+                    <img src="images/embeddings.png" width="700"/>
                     <cit>Compressive Embedding and Visualization using Graphs</cit>
                 </center>
             </div>
 
-            <!-- Approach: discriminative -->
+            <!-- Approach: Discriminative -->
 
             <div id="Discriminative" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Discriminative Anomaly Detection</h1>
+                <h1>Discriminative<br/>Anomaly Detection</h1>
                 <center>
                     <img src="images/discriminative_brain.png" width="700"/>
                 </center>
+            </div>
+
+            <div id="Discriminative-model" class="step" data-rel-x="0" data-rel-y="0" data-scale="0.1">
+                <h1>Classification:<br/>problem factorisation</h1>
+                &nbsp;<br/>
+                &nbsp;<br/>
+                <center>
+                    <img src="images/discriminative_occ_model.png" width="900"/>
+                </center>
+                &nbsp;<br/>
+                Both models can be:<br/>
+                <ul>
+                    <li><b>Neural:      </b>high representation/discrimination power;</li>
+                    <li><b>Classical:   </b>fast model training (feasible in production).</li>
+                </ul>
             </div>
 
             <!-- Discriminative: One-class classification -->
 
             <div id="Discriminative-OCC" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>One Class Classification (OCC)</h1>
+                &nbsp;<br/>
                 <center>
                     <img src="images/discriminative_occ.png" width="900"/>
                     <cit>Deep Industrial Image Anomaly Detection: A Survey</cit>
+                </center>
+            </div>
+
+            <!-- Discriminative: Memory bank -->
+
+            <div id="Discriminative-OCC-memory" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>PaDiM and SPADE</h1>
+                <ul>
+                    <li>Backbone as feature extractor (such as ResNet);</li>
+                    <li>pixel-level features by pyramid-matching;</li>
+                    <li>
+                        pixel/patch level OCC:
+                        <ul>
+                            <li>PaDiM: pixel-wise normal pdf;</li>
+                            <li>SPADE: KNN (memory-bank) + threshold.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <center>
+                    <img src="images/padim.webp" width="900"/>
+                    <cit>PaDiM: a Patch Distribution Modeling Framework for Anomaly Detection and Localization</cit>
+                    <cit>Sub-Image Anomaly Detection with Deep Pyramid Correspondences</cit>
+                </center>
+            </div>
+
+            <div id="Discriminative-patchcore" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>PatchCore</h1>
+                <ul>
+                    <li>The more the images <i>the higher the performances</i>.</li>
+                    <li>The <b>memory-bank</b> gets <i>huge</i>, thus retrieval gets <i>slow</i>.</li>
+                    <li><u>Optimize the core feature set!</u></li>
+                </ul>
+                <center>
+                    <img src="images/coreset.png" width="900"/>
+                    <cit>Towards Total Recall in Industrial Anomaly Detection</cit>
+                </center>
+            </div>
+
+            <div id="Discriminative-reb" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>REB TODO</h1>
+                <center>
+                    <img src="images/.png" width="900"/>
+                    <cit>REB: Reducing Biases in Representation for Industrial Anomaly Detection</cit>
                 </center>
             </div>
 
@@ -185,14 +231,12 @@
 
             <!-- Discriminative: Distribution mapping -->
 
-            <!-- Discriminative: memory bank -->
-
             <!-- Discriminative: Change Detection -->
 
-            <!-- Approach: generative -->
+            <!-- Approach: Generative -->
 
             <div id="Generative" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Generative Anomaly Detection (reconstruction based)</h1>
+                <h1>Generative Anomaly Detection (reconstruction-based)</h1>
                 <center>
                     <img src="images/generative_brain.png" width="900"/>
                 </center>
