@@ -9,7 +9,8 @@
     <body>
         <div id="impress" data-transition-duration="500" 
              data-width="1024" data-height="768" data-max-scale="3">
-            <div id="Deep-field" class="step skip background" 
+
+            <div id="Cover" class="step skip background" 
                  data-x="15000" data-y="3000" data-z="-500" data-scale="30">
                 <img src="images/background.png" width="900"/>
             </div>
@@ -26,7 +27,6 @@
                     <li>The problem</li>
                     <li>Challenges in the industrial applications</li>
                     <li>Some approaches</li>
-                    <li>Training</li>
                     <li>Conclusions</li>
                 </ul>
             </div>
@@ -206,7 +206,7 @@
                 </center>
             </div>
 
-            <div id="Discriminative-patchcore" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Discriminative-patchcore" class="step" data-rel-x="0" data-rel-y="1000">
                 <h1>PatchCore</h1>
                 <ul>
                     <li>The more the images <i>the higher the performances</i>.</li>
@@ -219,23 +219,88 @@
                 </center>
             </div>
 
-            <div id="Discriminative-reb" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>REB TODO</h1>
+            <div id="Discriminative-REB" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>REB: REducing Bias</h1>
+                <ul>
+                    <li>SSL for domain adaptation with defect generation</li>
+                    <li>Local Density KNN</li>
+                </ul>
                 <center>
-                    <img src="images/.png" width="900"/>
+                    <img src="images/REB.png" width="900"/>
                     <cit>REB: Reducing Biases in Representation for Industrial Anomaly Detection</cit>
                 </center>
             </div>
 
-            <!-- Discriminative: Teacher-student -->
+            <div id="Discriminative-REB-SSL" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>REB: SSL for domain adaptation with defect generation</h1>
+                <center>
+                    <img src="images/REB_SSL.png" width="900"/>
+                    <cit>REB: Reducing Biases in Representation for Industrial Anomaly Detection</cit>
+                </center>
+            </div>
 
-            <!-- Discriminative: Distribution mapping -->
+            <div id="Discriminative-REB-LDKNN" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>REB: Local Density KNN</h1>
+                <center>
+                    The anomaly score on a patch $f^j$ is:
+                    $$
+                    s_{f^j} = \|f^j - m_j\|_2 - \alpha d_{m_j}
+                    $$
+                    where $(m_j, d_{m_j})$ represent the NN:
+                    $$
+                    (m_j, d_{m_j}) = \arg\min_{(m_j, d_{m_j})\in \mathcal{M}} \|f^j - m_j\|_2
+                    $$
+                    Distances are averages on the KNN:
+                    $$
+                    d_{m_j} = \frac{1}{K} \sum_{i \in KNN(j)}\|m_j-m_i\|_2
+                    $$
+                    whilst $\alpha$ is the local density coefficient.
+                </center>
+            </div>
+
+            <div id="Discriminative-GraphCore" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>GraphCore</h1>
+                <ul>
+                    <li>
+                        <b>Orientation-invariance</b> missing in PatchCore...<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...more images needed to compensate.
+                    </li>
+                    <li><b>Idea 1</b>: augment the training-set.</li>
+                    <li><b>Idea 2</b>: invariant features from augmented data.</li>
+                </ul>
+                &nbsp;<br/>
+                <center>
+                    <img src="images/GraphCore.png" width="800"/>
+                    <cit>Pushing the Limits of Few-shot Anomaly Detection in Idustry Vision: GraphCore</cit>
+                </center>
+            </div>
+
+            <!-- Discriminative: Teacher-Student -->
+
+            <div id="Discriminative-Teacher-Student" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>Teacher-student</h1>
+                <h2>Embed anomalies in different spaces</h2>
+                &nbsp;<br/>
+                <center>
+                    <img src="images/TeacherStudent.png" width="800"/>
+                    <cit>Deep Industrial Image Anomaly Detection: A Survey</cit>
+                </center>
+            </div>
 
             <!-- Discriminative: Change Detection -->
 
+            <div id="Discriminative-ChangeDetection" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>Change-Detection</h1>
+                <center>
+                    <img src="images/anomalies_clearance.png" width="650"/>
+                    <img src="images/ChangeDetection.png" width="650"/>
+                    <cit>A Siamese Network Based U-Net for Change Detection in High Resolution Remote Sensing Images</cit>
+                </center>
+            </div>
+
             <!-- Approach: Generative -->
 
-            <div id="Generative" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Generative" class="step" data-rel-x="-1500" data-rel-y="0">
                 <h1>Generative Anomaly Detection (reconstruction-based)</h1>
                 <center>
                     <img src="images/generative_brain.png" width="900"/>
@@ -248,19 +313,13 @@
 
             <!-- Generative: ViT-based -->
 
-            <!-- Training: overview -->
+            <!-- Generative: Distribution mapping -->
 
-            <!-- Training: losses -->
-
-            <!-- Training: augmentations -->
-
-            <!-- Training: SSL -->
-
-            <!-- Training: Pretraining -->
+            <!-- Mix: EfficientAD -->
 
             <!-- Conclusions -->
 
-            <div id="Conclusions" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Conclusions" class="step" data-rel-x="-1500" data-rel-y="0">
                 <h1>Conclusions</h1>
                 <h2>Deep Learning in the industry</h2>
                 <center style="font-size: 130%; margin-top: 70px;">

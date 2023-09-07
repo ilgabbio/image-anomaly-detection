@@ -22,7 +22,7 @@ body {
 }
 
 .impress-enabled div.step {
-    opacity: 0.02;
+    opacity: 0.2;
     transition: opacity 500ms;
     margin: 0;
 }
