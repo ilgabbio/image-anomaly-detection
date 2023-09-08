@@ -21,7 +21,7 @@
                 </h1>
             </div>
 
-            <div id="Agenda" class="step agenda" data-x="5000" data-y="-2200">
+            <div id="Agenda" class="step agenda" data-x="6500" data-y="-2200">
                 <h1>Agenda</h1>
                 <ul>
                     <li>The problem</li>
@@ -151,7 +151,7 @@
 
             <!-- Approach: Discriminative -->
 
-            <div id="Discriminative" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Discriminative" class="step" data-rel-x="0" data-rel-y="1000">
                 <h1>Discriminative<br/>Anomaly Detection</h1>
                 <center>
                     <img src="images/discriminative_brain.png" width="700"/>
@@ -175,7 +175,7 @@
 
             <!-- Discriminative: One-class classification -->
 
-            <div id="Discriminative-OCC" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Discriminative-OCC" class="step" data-rel-x="-1500" data-rel-y="0">
                 <h1>One Class Classification (OCC)</h1>
                 &nbsp;<br/>
                 <center>
@@ -186,7 +186,7 @@
 
             <!-- Discriminative: Memory bank -->
 
-            <div id="Discriminative-OCC-memory" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Discriminative-OCC-memory" class="step" data-rel-x="-1500" data-rel-y="0">
                 <h1>PaDiM and SPADE</h1>
                 <ul>
                     <li>Backbone as feature extractor (such as ResNet);</li>
@@ -206,7 +206,7 @@
                 </center>
             </div>
 
-            <div id="Discriminative-patchcore" class="step" data-rel-x="0" data-rel-y="1000">
+            <div id="Discriminative-patchcore" class="step" data-rel-x="-1500" data-rel-y="0">
                 <h1>PatchCore</h1>
                 <ul>
                     <li>The more the images <i>the higher the performances</i>.</li>
@@ -300,7 +300,7 @@
 
             <!-- Approach: Generative -->
 
-            <div id="Generative" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Generative" class="step" data-rel-x="0" data-rel-y="1000">
                 <h1>Generative Anomaly Detection (reconstruction-based)</h1>
                 <center>
                     <img src="images/generative_brain.png" width="900"/>
@@ -309,9 +309,61 @@
 
             <!-- Generative: Autoencoders -->
 
+            <div id="Generative-Autoencoders" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Autoencoder-based AD</h1>
+                Idea: train a generator on goods, generate and compare.
+                <center>
+                    <img src="images/AutoEncoder.svg" width="900"/>
+                    <a href="https://it.mathworks.com/discovery/autoencoder.html">MathWorks</a>
+                </center>
+            </div>
+
             <!-- Generative: GAN (BiGAN/CBiGAN) -->
 
-            <!-- Generative: ViT-based -->
+            <div id="Generative-GAN" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>GAN-based AD: GANs</h1>
+                &nbsp;<br/>
+                &nbsp;<br/>
+                Do you remember one-directional GANs?<br/>
+                &nbsp;<br/>
+                <center>
+                    <img src="images/GAN.png" width="900"/>
+                    <cit>Adversarial Feature Learning</cit>
+                </center>
+                $$
+                V(G,D) = \min_G \max_D \mathbb{E}\left[\log(D(x))\right] + \mathbb{E}\left[\log(1-D(G(z)))\right]
+                $$
+            </div>
+
+            <div id="Generative-BiGAN" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>GAN-based AD: BiGANs</h1>
+                &nbsp;<br/>
+                Can we learn better features using them?<br/>
+                &nbsp;<br/>
+                <center>
+                    <img src="images/BiGAN.png" width="900"/>
+                    <cit>Adversarial Feature Learning</cit>
+                </center>
+                $$
+                V(G,E,D) = \min_{G,E} \max_D \mathbb{E}\left[\log(D(x,E(x)))\right] + \mathbb{E}\left[\log(1-D(G(z),z))\right]
+                $$
+            </div>
+
+            <div id="Generative-CBiGAN" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>GAN-based AD: CBiGANs</h1>
+                Double-autoencoder trained with WGAN objective and consistency loss:<br/>
+                &nbsp;<br/>
+                <center>
+                    <img src="images/CBiGAN.png" width="900"/>
+                    <cit>Combining GANs and AutoEncoders for Efficient Anomaly Detection</cit>
+                </center>
+                $$
+                V(G,E,D) = \min_{G,E} \max_D \mathbb{E}\left[D(x,E(x))\right] - \mathbb{E}\left[D(G(z),z)\right] 
+                    \rightarrow \left\{\mathcal{L}_{E,G},\mathcal{L}_{D}\right\} \\
+                \mathcal{L}_C = \mathcal{L}_{R} + \mathcal{L}_{R'} \quad \mathcal{L}_{R} = \|x-G(E(x))\|_1 \quad \mathcal{L}_{R'} = \|z-E(G(z))\|_1 \\
+                \mathcal{L}_{E,G}^* = (1-\alpha)\mathcal{L}_{E,G} + \alpha \mathcal{L}_{C}
+                $$
+            </div>
 
             <!-- Generative: Distribution mapping -->
 
@@ -319,7 +371,7 @@
 
             <!-- Conclusions -->
 
-            <div id="Conclusions" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Conclusions" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Conclusions</h1>
                 <h2>Deep Learning in the industry</h2>
                 <center style="font-size: 130%; margin-top: 70px;">
