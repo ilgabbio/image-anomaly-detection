@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Generative VS Discriminative ML models</title>
+        <title>Anomaly Detection in the Industry</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="./css/impress-common.css" rel="stylesheet" />
         <link href="./css/presentation.css" rel="stylesheet" />
@@ -17,15 +17,38 @@
 
             <div id="Overview" class="step" data-x="15000" data-y="2000" data-scale="20">
                 <h1>
-                    Generative Deep Neural Models
+                    Anomaly Detection<br/>in the Industry
                 </h1>
+                &nbsp;<br/>
+                &nbsp;<br/>
+                &nbsp;<br/>
+                <div style="
+                        display: inline-block;
+                        left: calc(50% - 350px);
+                        right: calc(50% - 350px);
+                        position: fixed;
+                        bottom: 10px;
+                        color: black;
+                        text-align: center;
+                        background: white;
+                        height: 70px;
+                        padding: 10px;
+                        border-radius: 30px;
+                    ">
+                    <img src="images/sea-full.png" height="70" style="display: inline; vertical-align: middle;"/>
+                    <!-- span>
+                        sponsored by
+                    </span -->
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    <img src="images/argo-full.png" height="70" style="display: inline; vertical-align: middle;"/>
+                </div>
             </div>
 
             <div id="Agenda" class="step agenda" data-x="6500" data-y="-2200">
                 <h1>Agenda</h1>
                 <ul>
                     <li>The problem</li>
-                    <li>Challenges in the industrial applications</li>
                     <li>Some approaches</li>
                     <li>Conclusions</li>
                 </ul>
@@ -34,10 +57,10 @@
             <!-- Definition -->
 
             <div id="Anomaly-Detection-problem-industry" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Anomaly Detection on products</h1>
+                <h1>Anomaly Detection</h1>
                 <center>
-                    &nbsp;
-                    Objects and textures with random poses:<br/>
+                    Distinguish defects/never-seen patterns from normality<br/>
+                    &nbsp;<br/>
                     <img src="images/anomalies_industry.png" width="700"/><br/>
                     <cit>The MVTec Anomaly Detection Dataset:<br/>A Comprehensive Real-World Dataset for Unsupervised Anomaly Detection</cit>
                 </center>
@@ -47,7 +70,7 @@
                 <h1>Example in the cosmetic</h1>
                 &nbsp;<br/>
                 <center>
-                    High target variability:<br/>
+                    High target variability<br/>
                     <img src="images/anomalies_cosmetic.png" width="900"/>
                     <cit>Photo from <a href="http://yourinvisiblecrown.blogspot.com/2012/05/what-does-your-lipstick-shape-say-about.html">Your invisible crown</a>: personality test</cit>
                 </center>
@@ -58,7 +81,7 @@
                 &nbsp;<br/>
                 &nbsp;<br/>
                 <center>
-                    Environment conditions and moving parts:<br/>
+                    Complex scenes, environment conditions, moving parts<br/>
                     &nbsp;<br/>
                     <img src="images/anomalies_clearance.png" width="900"/><br/>
                 </center>
@@ -69,10 +92,10 @@
             <div id="Challenges-invariants" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Challenges: invariants</h1>
                 &nbsp;<br/>
-                <ul>
-                    <li>Pose (position in the image, 3d orientation)</li>
-                    <li>Lighting conditions (illumination, reflects)</li>
-                </ul>
+                <center>
+                    Pose (position in the image, 3D orientation)<br/>
+                    Lighting conditions (illumination, reflects)<br/>
+                </center>
                 &nbsp;<br/>
                 <center>
                     <img src="images/challenges_invariants.png" width="800"/><br/>
@@ -85,7 +108,7 @@
                 <h1>Not completely invariant to pose</h1>
                 &nbsp;<br/>
                 <center>
-                    Legit patterns are anomalies if found in wrong positions:<br/>
+                    Legit patterns in wrong positions are (logical) anomalies<br/>
                     &nbsp;<br/>
                     <img src="images/challenges_position.png" width="800"/>
                 </center>
@@ -97,7 +120,8 @@
                 <h1>Generality</h1>
                 &nbsp;<br/>
                 <center>
-                    Sometimes, training one model per product is not feasible:
+                    Sometimes, training one model per product is not feasible<br/>
+                    &nbsp;<br/>
                     <img src="images/challenges_variability.png" width="800"/><br/>
                 </center>
             </div>
@@ -106,25 +130,27 @@
 
             <div id="Challenges-other" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Some other challenges</h1>
-                <ul>
-                    <li><b>Simple:      </b>easy/fast to configure/train</li>
-                    <li><b>Real-time:   </b>fast model evaluation</li>
-                    <li><b>Cheap:       </b>one system, many cameras</li>
-                    <li><b>General:     </b>one model to rule them all!</li>
-                </ul>
+                <center>
+                    <b>Simple:      </b>easy/fast to configure/train<br/>
+                    <b>Real-time:   </b>fast model evaluation<br/>
+                    <b>Cheap:       </b>one system, many cameras<br/>
+                    <b>General:     </b>one model to rule them all!<br/>
+                </center>
                 <br/>
                 <center>
                     <img src="images/background.png" width="600"/><br/>
+                    <cit>The MVTec Anomaly Detection Dataset:<br/>A Comprehensive Real-World Dataset for Unsupervised Anomaly Detection</cit>
                 </center>
             </div>
 
             <!-- Probabilistic view -->
 
             <div id="Anomaly-Detection-probability_idea" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>A propabilistic view</h1>
-                &nbsp;<br/>
+                <h1>A probabilistic view</h1>
                 &nbsp;<br/>
                 <center>
+                    Low proabability samples are anomalies: model the pdf<br/>
+                    &nbsp;<br/>
                     <img src="images/basic_prob_idea.png" width="900"/>
                 </center>
             </div>
@@ -138,12 +164,10 @@
             </div>
 
             <div id="Anomaly-Detection-embedding" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Images Embeddings</h1>
-                <ul>
-                    <li>Embed images in a lower-dimensional well-structured space;</li>
-                    <li>perform one-class classification there (OCC).</li>
-                </ul>
+                <h1>Image Embeddings</h1>
                 <center>
+                    Embed images in a lower-dimensional well-structured space<br/>
+                    &nbsp;<br/>
                     <img src="images/embeddings.png" width="700"/>
                     <cit>Compressive Embedding and Visualization using Graphs</cit>
                 </center>
@@ -168,8 +192,8 @@
                 &nbsp;<br/>
                 Both models can be:<br/>
                 <ul>
-                    <li><b>Neural:      </b>high representation/discrimination power;</li>
-                    <li><b>Classical:   </b>fast model training (feasible in production).</li>
+                    <li><b>Deep:    </b>high representation/discrimination power;</li>
+                    <li><b>Shallow: </b>fast model training (feasible in production).</li>
                 </ul>
             </div>
 
@@ -177,8 +201,9 @@
 
             <div id="Discriminative-OCC" class="step" data-rel-x="-1500" data-rel-y="0">
                 <h1>One Class Classification (OCC)</h1>
-                &nbsp;<br/>
                 <center>
+                    Identify a boundary around data (eg.: SVDD)
+                    &nbsp;<br/>
                     <img src="images/discriminative_occ.png" width="900"/>
                     <cit>Deep Industrial Image Anomaly Detection: A Survey</cit>
                 </center>
@@ -211,7 +236,7 @@
                 <ul>
                     <li>The more the images <i>the higher the performances</i>.</li>
                     <li>The <b>memory-bank</b> gets <i>huge</i>, thus retrieval gets <i>slow</i>.</li>
-                    <li><u>Optimize the core feature set!</u></li>
+                    <li><u>Optimise the memory bank (core feature set).</u></li>
                 </ul>
                 <center>
                     <img src="images/coreset.png" width="900"/>
@@ -278,7 +303,7 @@
             <!-- Discriminative: Teacher-Student -->
 
             <div id="Discriminative-Teacher-Student" class="step" data-rel-x="-1500" data-rel-y="0">
-                <h1>Teacher-student</h1>
+                <h1>Teacher-Student</h1>
                 <h2>Embed anomalies in different spaces</h2>
                 &nbsp;<br/>
                 <center>
@@ -369,16 +394,55 @@
 
             <!-- Mix: EfficientAD -->
 
+            <div id="Mix-EfficientAD" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Mix: EfficientAD</h1>
+                <div>
+                    <div style="width: 40%; display: inline-block; vertical-align: top;">
+                        Components:
+                        <ul>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <li>
+                                Teacher-Student:
+                                <ul>
+                                    <li>local (feature-based)</li>
+                                    <li>example-mining loss</li>
+                                </ul> 
+                            </li>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <li>
+                                Auto-Encorder:
+                                <ul>
+                                    <li>global (logical)</li>
+                                    <li>student generating also AE output</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <center style="width: 55%; display: inline-block;">
+                        <img src="images/EfficientAD_local.png" width="550"/>
+                        <img src="images/EfficientAD_global.png" width="550"/>
+                        <cit style="width: 500px;">EfficientAD: Accurate Visual Anomaly Detection at Millisecond-Level Latencies</cit>
+                    </center>
+                </div>
+            </div>
+
+            <!-- Generative: DSR -->
+
             <!-- Conclusions -->
 
             <div id="Conclusions" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Conclusions</h1>
-                <h2>Deep Learning in the industry</h2>
+                <h2>Anomaly Detection in the industry</h2>
                 <center style="font-size: 130%; margin-top: 70px;">
                     <br/>
-                    Anomaly Detection becoming more reliable.
+                    Deep-Learning provides informative embeddings.
                     <br/>
-                    Models becoming more flexible.
+                    Models are becoming more and more flexible.
+                    <br/>
+                    Short training on the edge helps.
                 </center>
                 <center style="font-size: 500%; color: white; margin-top: 70px;">
                     Qs?
