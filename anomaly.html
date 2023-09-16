@@ -76,7 +76,7 @@
                 </center>
             </div>
 
-            <div id="Anomaly-Detection-problem-pharma" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Anomaly-Detection-problem-pharma" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Example in the pharma</h1>
                 &nbsp;<br/>
                 &nbsp;<br/>
@@ -104,7 +104,7 @@
 
             <!-- Challenges: position dependency -->
 
-            <div id="Challenges-position" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Challenges-position" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Not completely invariant to pose</h1>
                 &nbsp;<br/>
                 <center>
@@ -116,7 +116,7 @@
 
             <!-- Challenges: few-shots.. are not few -->
 
-            <div id="Challenges-dataset" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Challenges-dataset" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Generality</h1>
                 &nbsp;<br/>
                 <center>
@@ -131,7 +131,7 @@
             <div id="Challenges-other" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Some other challenges</h1>
                 <center>
-                    <b>Simple:      </b>easy/fast to configure/train<br/>
+                    <b>Simple:      </b>easy/fast to deploy/adapt<br/>
                     <b>Real-time:   </b>fast model evaluation<br/>
                     <b>Cheap:       </b>one system, many cameras<br/>
                     <b>General:     </b>one model to rule them all!<br/>
@@ -215,7 +215,7 @@
                 <h1>PaDiM and SPADE</h1>
                 <ul>
                     <li>Backbone as feature extractor (such as ResNet);</li>
-                    <li>pixel-level features by pyramid-matching;</li>
+                    <li>pixel/patch-level features by pyramid-matching;</li>
                     <li>
                         pixel/patch level OCC:
                         <ul>
@@ -244,6 +244,23 @@
                 </center>
             </div>
 
+            <div id="Discriminative-GraphCore" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>GraphCore</h1>
+                <ul>
+                    <li>
+                        <b>Orientation-invariance</b> missing in PatchCore...<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...more images needed to compensate.
+                    </li>
+                    <li><b>Idea 1</b>: augment the training-set.</li>
+                    <li><b>Idea 2</b>: invariant features from augmented data.</li>
+                </ul>
+                &nbsp;<br/>
+                <center>
+                    <img src="images/GraphCore.png" width="800"/>
+                    <cit>Pushing the Limits of Few-shot Anomaly Detection in Idustry Vision: GraphCore</cit>
+                </center>
+            </div>
+
             <div id="Discriminative-REB" class="step" data-rel-x="-1500" data-rel-y="0">
                 <h1>REB: REducing Bias</h1>
                 <ul>
@@ -256,7 +273,7 @@
                 </center>
             </div>
 
-            <div id="Discriminative-REB-SSL" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Discriminative-REB-SSL" class="step skip" data-rel-x="-1500" data-rel-y="0">
                 <h1>REB: SSL for domain adaptation with defect generation</h1>
                 <center>
                     <img src="images/REB_SSL.png" width="900"/>
@@ -264,7 +281,7 @@
                 </center>
             </div>
 
-            <div id="Discriminative-REB-LDKNN" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Discriminative-REB-LDKNN" class="step skip" data-rel-x="-1500" data-rel-y="0">
                 <h1>REB: Local Density KNN</h1>
                 <center>
                     The anomaly score on a patch $f^j$ is:
@@ -280,23 +297,6 @@
                     d_{m_j} = \frac{1}{K} \sum_{i \in KNN(j)}\|m_j-m_i\|_2
                     $$
                     whilst $\alpha$ is the local density coefficient.
-                </center>
-            </div>
-
-            <div id="Discriminative-GraphCore" class="step" data-rel-x="-1500" data-rel-y="0">
-                <h1>GraphCore</h1>
-                <ul>
-                    <li>
-                        <b>Orientation-invariance</b> missing in PatchCore...<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...more images needed to compensate.
-                    </li>
-                    <li><b>Idea 1</b>: augment the training-set.</li>
-                    <li><b>Idea 2</b>: invariant features from augmented data.</li>
-                </ul>
-                &nbsp;<br/>
-                <center>
-                    <img src="images/GraphCore.png" width="800"/>
-                    <cit>Pushing the Limits of Few-shot Anomaly Detection in Idustry Vision: GraphCore</cit>
                 </center>
             </div>
 
@@ -466,9 +466,10 @@
                     <br/>
                     Deep-Learning provides informative embeddings.
                     <br/>
-                    Models are becoming more and more flexible.
+                    &nbsp;<br/>
+                    Models are becoming more and more flexible...
                     <br/>
-                    Short training on the edge helps.
+                    ...by means of fast adaptation on the edge.
                 </center>
                 <center style="font-size: 500%; color: white; margin-top: 70px;">
                     Qs?
