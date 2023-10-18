@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <div id="Agenda" class="step agenda" data-x="6500" data-y="-2200">
+            <div id="Agenda" class="step agenda skip" data-x="6500" data-y="-2200">
                 <h1>Agenda</h1>
                 <ul>
                     <li>The problem</li>
@@ -58,15 +58,16 @@
 
             <div id="Anomaly-Detection-problem-industry" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Anomaly Detection</h1>
+                <h2>Distinguish anomaly from normality</h2>
                 <center>
-                    Distinguish defects/never-seen patterns from normality<br/>
+                    (defects / never-seen patterns / ...) <br>
                     &nbsp;<br/>
                     <img src="images/anomalies_industry.png" width="700"/><br/>
                     <cit>The MVTec Anomaly Detection Dataset:<br/>A Comprehensive Real-World Dataset for Unsupervised Anomaly Detection</cit>
                 </center>
             </div>
 
-            <div id="Anomaly-Detection-problem-cosmetic" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Anomaly-Detection-problem-cosmetic" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Example in the cosmetic</h1>
                 &nbsp;<br/>
                 <center>
@@ -76,7 +77,7 @@
                 </center>
             </div>
 
-            <div id="Anomaly-Detection-problem-pharma" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Anomaly-Detection-problem-pharma" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Example in the pharma</h1>
                 &nbsp;<br/>
                 &nbsp;<br/>
@@ -89,7 +90,7 @@
 
             <!-- Challenges: invariants (position, orientation, light) -->
 
-            <div id="Challenges-invariants" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Challenges-invariants" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Challenges: invariants</h1>
                 &nbsp;<br/>
                 <center>
@@ -104,7 +105,7 @@
 
             <!-- Challenges: position dependency -->
 
-            <div id="Challenges-position" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Challenges-position" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Not completely invariant to pose</h1>
                 &nbsp;<br/>
                 <center>
@@ -120,7 +121,8 @@
                 <h1>Generality</h1>
                 &nbsp;<br/>
                 <center>
-                    Sometimes, training one model per product is not feasible<br/>
+                    Training one specific model per product gives optimal performances...<br/>
+                    ...but it is not feasible due to costs and time to market.<br/>
                     &nbsp;<br/>
                     <img src="images/challenges_variability.png" width="800"/><br/>
                 </center>
@@ -129,7 +131,7 @@
             <!-- Challenges: moving parts -->
 
             <div id="Challenges-other" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Some other challenges</h1>
+                <h1>Some challenges</h1>
                 <center>
                     <b>Simple:      </b>easy/fast to deploy/adapt<br/>
                     <b>Real-time:   </b>fast model evaluation<br/>
@@ -165,8 +167,8 @@
 
             <div id="Anomaly-Detection-embedding" class="step" data-rel-x="1500" data-rel-y="0">
                 <h1>Image Embeddings</h1>
+                <h2>Embed in a lower-dimensional space</h2>
                 <center>
-                    Embed images in a lower-dimensional well-structured space<br/>
                     &nbsp;<br/>
                     <img src="images/embeddings.png" width="700"/>
                     <cit>Compressive Embedding and Visualization using Graphs</cit>
@@ -190,10 +192,12 @@
                     <img src="images/discriminative_occ_model.png" width="900"/>
                 </center>
                 &nbsp;<br/>
-                Both models can be:<br/>
+                The right complexity for every step:<br/><br>
                 <ul>
-                    <li><b>Deep:    </b>high representation/discrimination power;</li>
-                    <li><b>Shallow: </b>fast model training (feasible in production).</li>
+                    <li><b>Deep feature extraction:</b><br> $\rightarrow$ 
+                        high-level features with good data semantic representation;</li>
+                    <li><b>Traditional classification:</b><br> $\rightarrow$ 
+                        fast model training (in production), meaningful parameters.</li>
                 </ul>
             </div>
 
@@ -201,8 +205,9 @@
 
             <div id="Discriminative-OCC" class="step" data-rel-x="-1500" data-rel-y="0">
                 <h1>One Class Classification (OCC)</h1>
+                <h2>Identify a boundary around data</h2>
                 <center>
-                    Identify a boundary around data (eg.: SVDD)
+                    (eg.: SVDD: Support Vector Data Description)
                     &nbsp;<br/>
                     <img src="images/discriminative_occ.png" width="900"/>
                     <cit>Deep Industrial Image Anomaly Detection: A Survey</cit>
@@ -215,9 +220,9 @@
                 <h1>PaDiM and SPADE</h1>
                 <ul>
                     <li>Backbone as feature extractor (such as ResNet);</li>
-                    <li>pixel/patch-level features by pyramid-matching;</li>
+                    <li>pixel / patch-level features by pyramid-matching;</li>
                     <li>
-                        pixel/patch level OCC:
+                        pixel / patch level OCC:
                         <ul>
                             <li>PaDiM: pixel-wise normal pdf;</li>
                             <li>SPADE: KNN (memory-bank) + threshold.</li>
@@ -240,28 +245,75 @@
                 </ul>
                 <center>
                     <img src="images/coreset.png" width="900"/>
-                    <cit>Towards Total Recall in Industrial Anomaly Detection</cit>
+                    <a href="https://arxiv.org/abs/2106.08265" target="_blank"><cit>Towards Total Recall in Industrial Anomaly Detection</cit></a>
                 </center>
             </div>
 
-            <div id="Discriminative-GraphCore" class="step" data-rel-x="-1500" data-rel-y="0">
-                <h1>GraphCore</h1>
+            <!-- Approach: Normalizing -->
+
+            <div id="Normalizing" class="step" data-rel-x="0" data-rel-y="1000">
+                <h1>Normalizing Flows</h1>
+                <h2>Warp complex to normal distribution</h2>
+                <center>
+                    <br>
+                    <img src="images/NormalizingFlow.png" width="700"/>
+                    <br>
+                    <img src="images/FastFlow.png" width="900"/>
+                </center>
+            </div>
+
+            <div id="Evaluation" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>Evaluation</h1>
                 <ul>
                     <li>
-                        <b>Orientation-invariance</b> missing in PatchCore...<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...more images needed to compensate.
+                        Pixel-wise metrics (binary case): <br> <br>
+                        Intersection over Union:
+                        &nbsp;&nbsp;
+                        <img src="images/iou.png" width="200px" style="display: inline-block; vertical-align: middle;"/>
+                        &nbsp;&nbsp;
+                        $IoU(A, B) = \frac{A \cdot B}{A + B - A \cdot B}$
                     </li>
-                    <li><b>Idea 1</b>: augment the training-set.</li>
-                    <li><b>Idea 2</b>: invariant features from augmented data.</li>
+                    <li>
+                        <img src="images/PR-curve.png" width="400" style="float: right;">
+                        Object-wise metrics: <br>
+                        - Use IoU to detect TP/FP/FN <br>
+                        - compute Precision and Recall <br>
+                        - AP = area under the PR curve <br>
+                        - mAP = average on classes <br>
+                        In binary cases IoU can be enough!
+                    </li>
+                    <li>
+                        Image-wise metrics: <br>
+                        Binary classification: $(TP/FP/TN/FN) \rightarrow Precision/Recall$ <br> <br>
+                        <center>
+                        $F_1 = \frac{2TP}{2TP + FP + FN} \rightarrow$ harmonic mean between P and R
+                        </center>
+                    </li>
                 </ul>
-                &nbsp;<br/>
+            </div>
+
+            <div id="Issues-common" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>Common issues</h1>
                 <center>
-                    <img src="images/GraphCore.png" width="800"/>
-                    <cit>Pushing the Limits of Few-shot Anomaly Detection in Idustry Vision: GraphCore</cit>
+                    <img src="images/under-over.png" width="700">
+                    <cit>Source: Wonseok Shin</cit>
                 </center>
             </div>
 
-            <div id="Discriminative-REB" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Tasks" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>It's your turn!</h1>
+                <center>
+                    The needed tools to set-up the work environment are in this github repo: <br/><br/>
+                    <big>
+                        <a href="https://github.com/ilgabbio/polimi-career-simulation/tree/2024" target="_blank">
+                            https://github.com/ilgabbio/polimi-career-simulation/tree/2024
+                        </a><br/><br/>
+                        <img src="images/task_repo.png" width="400"/>
+                    </big>
+                </center>
+            </div>
+
+            <div id="Discriminative-REB" class="step skip" data-rel-x="-1500" data-rel-y="0">
                 <h1>REB: REducing Bias</h1>
                 <ul>
                     <li>SSL for domain adaptation with defect generation</li>
@@ -273,7 +325,7 @@
                 </center>
             </div>
 
-            <div id="Discriminative-REB-SSL" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Discriminative-REB-SSL" class="step skip" data-rel-x="-1500" data-rel-y="0">
                 <h1>REB: SSL for domain adaptation with defect generation</h1>
                 <center>
                     <img src="images/REB_SSL.png" width="900"/>
@@ -281,7 +333,7 @@
                 </center>
             </div>
 
-            <div id="Discriminative-REB-LDKNN" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Discriminative-REB-LDKNN" class="step skip" data-rel-x="-1500" data-rel-y="0">
                 <h1>REB: Local Density KNN</h1>
                 <center>
                     The anomaly score on a patch $f^j$ is:
@@ -302,7 +354,7 @@
 
             <!-- Discriminative: Teacher-Student -->
 
-            <div id="Discriminative-Teacher-Student" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Discriminative-Teacher-Student" class="step skip" data-rel-x="-1500" data-rel-y="0">
                 <h1>Teacher-Student</h1>
                 <h2>Embed anomalies in different spaces</h2>
                 &nbsp;<br/>
@@ -314,7 +366,7 @@
 
             <!-- Discriminative: Change Detection -->
 
-            <div id="Discriminative-ChangeDetection" class="step" data-rel-x="-1500" data-rel-y="0">
+            <div id="Discriminative-ChangeDetection" class="step skip" data-rel-x="-1500" data-rel-y="0">
                 <h1>Change-Detection</h1>
                 <center>
                     <img src="images/anomalies_clearance.png" width="650"/>
@@ -323,22 +375,9 @@
                 </center>
             </div>
 
-            <!-- Approach: Normalizing -->
-
-            <div id="Normalizing" class="step" data-rel-x="0" data-rel-y="1000">
-                <h1>Normalizing Flows</h1>
-                <h2>Warp complex to normal distribution</h2>
-                <center>
-                    <br>
-                    <img src="images/NormalizingFlow.png" width="700"/>
-                    <br>
-                    <img src="images/FastFlow.png" width="900"/>
-                </center>
-            </div>
-
             <!-- Approach: Generative -->
 
-            <div id="Generative" class="step" data-rel-x="0" data-rel-y="1000">
+            <div id="Generative" class="step skip" data-rel-x="0" data-rel-y="1000">
                 <h1>Generative Anomaly Detection (reconstruction-based)</h1>
                 <center>
                     <img src="images/generative_brain.png" width="900"/>
@@ -347,7 +386,7 @@
 
             <!-- Generative: Autoencoders -->
 
-            <div id="Generative-Autoencoders" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Generative-Autoencoders" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Autoencoder-based AD</h1>
                 Idea: train a generator on goods, generate and compare.
                 <center>
@@ -358,7 +397,7 @@
 
             <!-- Generative: GAN (BiGAN/CBiGAN) -->
 
-            <div id="Generative-GAN" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Generative-GAN" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>GAN-based AD: GANs</h1>
                 &nbsp;<br/>
                 &nbsp;<br/>
@@ -373,7 +412,7 @@
                 $$
             </div>
 
-            <div id="Generative-BiGAN" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Generative-BiGAN" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>GAN-based AD: BiGANs</h1>
                 &nbsp;<br/>
                 Can we learn better features using them?<br/>
@@ -387,7 +426,7 @@
                 $$
             </div>
 
-            <div id="Generative-CBiGAN" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Generative-CBiGAN" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>GAN-based AD: CBiGANs</h1>
                 Double-autoencoder trained with WGAN objective and consistency loss:<br/>
                 &nbsp;<br/>
@@ -407,7 +446,7 @@
 
             <!-- Mix: EfficientAD -->
 
-            <div id="Mix-EfficientAD" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Mix-EfficientAD" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Mix: EfficientAD</h1>
                 <div>
                     <div style="width: 40%; display: inline-block; vertical-align: top;">
@@ -444,7 +483,7 @@
 
             <!-- Generative: DSR -->
 
-            <div id="Mix-DSR" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Mix-DSR" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Quantized features: DSR</h1>
                 <center>
                     Reconstruct both generic and specific images<br/>
@@ -460,7 +499,7 @@
                 </center>
             </div>
 
-            <div id="Mix-DSR-detail" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Mix-DSR-detail" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>DSR: generate normal images</h1>
                 <center>
                     <img src="images/DSR-encoder.png" width="900"/>
@@ -472,7 +511,7 @@
 
             <!-- Conclusions -->
 
-            <div id="Conclusions" class="step" data-rel-x="1500" data-rel-y="0">
+            <div id="Conclusions" class="step skip" data-rel-x="1500" data-rel-y="0">
                 <h1>Conclusions</h1>
                 <h2>Anomaly Detection in the industry</h2>
                 <center style="font-size: 130%; margin-top: 70px;">
