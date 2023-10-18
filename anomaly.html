@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <div id="Agenda" class="step agenda" data-x="6500" data-y="-2200">
+            <div id="Agenda" class="step agenda skip" data-x="6500" data-y="-2200">
                 <h1>Agenda</h1>
                 <ul>
                     <li>The problem</li>
@@ -66,61 +66,14 @@
                 </center>
             </div>
 
-            <div id="Anomaly-Detection-problem-cosmetic" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Example in the cosmetic</h1>
-                &nbsp;<br/>
-                <center>
-                    High target variability<br/>
-                    <img src="images/anomalies_cosmetic.png" width="900"/>
-                    <cit>Photo from <a href="http://yourinvisiblecrown.blogspot.com/2012/05/what-does-your-lipstick-shape-say-about.html">Your invisible crown</a>: personality test</cit>
-                </center>
-            </div>
-
-            <div id="Anomaly-Detection-problem-pharma" class="step skip" data-rel-x="1500" data-rel-y="0">
-                <h1>Example in the pharma</h1>
-                &nbsp;<br/>
-                &nbsp;<br/>
-                <center>
-                    Complex scenes, environment conditions, moving parts<br/>
-                    &nbsp;<br/>
-                    <img src="images/anomalies_clearance.png" width="900"/><br/>
-                </center>
-            </div>
-
-            <!-- Challenges: invariants (position, orientation, light) -->
-
-            <div id="Challenges-invariants" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Challenges: invariants</h1>
-                &nbsp;<br/>
-                <center>
-                    Pose (position in the image, 3D orientation)<br/>
-                    Lighting conditions (illumination, reflects)<br/>
-                </center>
-                &nbsp;<br/>
-                <center>
-                    <img src="images/challenges_invariants.png" width="800"/><br/>
-                </center>
-            </div>
-
-            <!-- Challenges: position dependency -->
-
-            <div id="Challenges-position" class="step skip" data-rel-x="1500" data-rel-y="0">
-                <h1>Not completely invariant to pose</h1>
-                &nbsp;<br/>
-                <center>
-                    Legit patterns in wrong positions are (logical) anomalies<br/>
-                    &nbsp;<br/>
-                    <img src="images/challenges_position.png" width="800"/>
-                </center>
-            </div>
-
             <!-- Challenges: few-shots.. are not few -->
 
-            <div id="Challenges-dataset" class="step skip" data-rel-x="1500" data-rel-y="0">
-                <h1>Generality</h1>
+            <div id="Challenges-dataset" class="step" data-rel-x="1500" data-rel-y="0">
+                <h1>Need for Generality</h1>
                 &nbsp;<br/>
                 <center>
-                    Sometimes, training one model per product is not feasible<br/>
+                    Training one specific model per product gives optimal performances...<br/>
+                    ...but it is not feasible due to costs and time to market.<br/>
                     &nbsp;<br/>
                     <img src="images/challenges_variability.png" width="800"/><br/>
                 </center>
@@ -129,7 +82,7 @@
             <!-- Challenges: moving parts -->
 
             <div id="Challenges-other" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Some other challenges</h1>
+                <h1>Some challenges</h1>
                 <center>
                     <b>Simple:      </b>easy/fast to deploy/adapt<br/>
                     <b>Real-time:   </b>fast model evaluation<br/>
@@ -240,244 +193,21 @@
                 </ul>
                 <center>
                     <img src="images/coreset.png" width="900"/>
-                    <cit>Towards Total Recall in Industrial Anomaly Detection</cit>
+                    <a href="https://arxiv.org/abs/2106.08265" target="_blank"><cit>Towards Total Recall in Industrial Anomaly Detection</cit></a>
                 </center>
             </div>
 
-            <div id="Discriminative-GraphCore" class="step" data-rel-x="-1500" data-rel-y="0">
-                <h1>GraphCore</h1>
-                <ul>
-                    <li>
-                        <b>Orientation-invariance</b> missing in PatchCore...<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...more images needed to compensate.
-                    </li>
-                    <li><b>Idea 1</b>: augment the training-set.</li>
-                    <li><b>Idea 2</b>: invariant features from augmented data.</li>
-                </ul>
-                &nbsp;<br/>
+            <div id="Tasks" class="step" data-rel-x="-1500" data-rel-y="0">
+                <h1>It's your turn!</h1>
                 <center>
-                    <img src="images/GraphCore.png" width="800"/>
-                    <cit>Pushing the Limits of Few-shot Anomaly Detection in Idustry Vision: GraphCore</cit>
+                    The needed tools to set-up the work environment are in this github repo: <br/><br/>
+                    <big>
+                        <a href="https://github.com/ilgabbio/polimi-career-simulation-2023" target="_blank">
+                            https://github.com/ilgabbio/polimi-career-simulation-2023
+                        </a><br/><br/>
+                        <img src="images/task_repo.png" width="400"/>
+                    </big>
                 </center>
-            </div>
-
-            <div id="Discriminative-REB" class="step" data-rel-x="-1500" data-rel-y="0">
-                <h1>REB: REducing Bias</h1>
-                <ul>
-                    <li>SSL for domain adaptation with defect generation</li>
-                    <li>Local Density KNN</li>
-                </ul>
-                <center>
-                    <img src="images/REB.png" width="900"/>
-                    <cit>REB: Reducing Biases in Representation for Industrial Anomaly Detection</cit>
-                </center>
-            </div>
-
-            <div id="Discriminative-REB-SSL" class="step skip" data-rel-x="-1500" data-rel-y="0">
-                <h1>REB: SSL for domain adaptation with defect generation</h1>
-                <center>
-                    <img src="images/REB_SSL.png" width="900"/>
-                    <cit>REB: Reducing Biases in Representation for Industrial Anomaly Detection</cit>
-                </center>
-            </div>
-
-            <div id="Discriminative-REB-LDKNN" class="step skip" data-rel-x="-1500" data-rel-y="0">
-                <h1>REB: Local Density KNN</h1>
-                <center>
-                    The anomaly score on a patch $f^j$ is:
-                    $$
-                    s_{f^j} = \|f^j - m_j\|_2 - \alpha d_{m_j}
-                    $$
-                    where $(m_j, d_{m_j})$ represent the NN:
-                    $$
-                    (m_j, d_{m_j}) = \arg\min_{(m_j, d_{m_j})\in \mathcal{M}} \|f^j - m_j\|_2
-                    $$
-                    Distances are averages on the KNN:
-                    $$
-                    d_{m_j} = \frac{1}{K} \sum_{i \in KNN(j)}\|m_j-m_i\|_2
-                    $$
-                    whilst $\alpha$ is the local density coefficient.
-                </center>
-            </div>
-
-            <!-- Discriminative: Teacher-Student -->
-
-            <div id="Discriminative-Teacher-Student" class="step" data-rel-x="-1500" data-rel-y="0">
-                <h1>Teacher-Student</h1>
-                <h2>Embed anomalies in different spaces</h2>
-                &nbsp;<br/>
-                <center>
-                    <img src="images/TeacherStudent.png" width="800"/>
-                    <cit>Deep Industrial Image Anomaly Detection: A Survey</cit>
-                </center>
-            </div>
-
-            <!-- Discriminative: Change Detection -->
-
-            <div id="Discriminative-ChangeDetection" class="step" data-rel-x="-1500" data-rel-y="0">
-                <h1>Change-Detection</h1>
-                <center>
-                    <img src="images/anomalies_clearance.png" width="650"/>
-                    <img src="images/ChangeDetection.png" width="650"/>
-                    <cit>A Siamese Network Based U-Net for Change Detection in High Resolution Remote Sensing Images</cit>
-                </center>
-            </div>
-
-            <!-- Approach: Generative -->
-
-            <div id="Generative" class="step" data-rel-x="0" data-rel-y="1000">
-                <h1>Generative Anomaly Detection (reconstruction-based)</h1>
-                <center>
-                    <img src="images/generative_brain.png" width="900"/>
-                </center>
-            </div>
-
-            <!-- Generative: Autoencoders -->
-
-            <div id="Generative-Autoencoders" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Autoencoder-based AD</h1>
-                Idea: train a generator on goods, generate and compare.
-                <center>
-                    <img src="images/AutoEncoder.svg" width="900"/>
-                    <a href="https://it.mathworks.com/discovery/autoencoder.html">MathWorks</a>
-                </center>
-            </div>
-
-            <!-- Generative: GAN (BiGAN/CBiGAN) -->
-
-            <div id="Generative-GAN" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>GAN-based AD: GANs</h1>
-                &nbsp;<br/>
-                &nbsp;<br/>
-                Do you remember one-directional GANs?<br/>
-                &nbsp;<br/>
-                <center>
-                    <img src="images/GAN.png" width="900"/>
-                    <cit>Adversarial Feature Learning</cit>
-                </center>
-                $$
-                V(G,D) = \min_G \max_D \mathbb{E}\left[\log(D(x))\right] + \mathbb{E}\left[\log(1-D(G(z)))\right]
-                $$
-            </div>
-
-            <div id="Generative-BiGAN" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>GAN-based AD: BiGANs</h1>
-                &nbsp;<br/>
-                Can we learn better features using them?<br/>
-                &nbsp;<br/>
-                <center>
-                    <img src="images/BiGAN.png" width="900"/>
-                    <cit>Adversarial Feature Learning</cit>
-                </center>
-                $$
-                V(G,E,D) = \min_{G,E} \max_D \mathbb{E}\left[\log(D(x,E(x)))\right] + \mathbb{E}\left[\log(1-D(G(z),z))\right]
-                $$
-            </div>
-
-            <div id="Generative-CBiGAN" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>GAN-based AD: CBiGANs</h1>
-                Double-autoencoder trained with WGAN objective and consistency loss:<br/>
-                &nbsp;<br/>
-                <center>
-                    <img src="images/CBiGAN.png" width="900"/>
-                    <cit>Combining GANs and AutoEncoders for Efficient Anomaly Detection</cit>
-                </center>
-                $$
-                V(G,E,D) = \min_{G,E} \max_D \mathbb{E}\left[D(x,E(x))\right] - \mathbb{E}\left[D(G(z),z)\right] 
-                    \rightarrow \left\{\mathcal{L}_{E,G},\mathcal{L}_{D}\right\} \\
-                \mathcal{L}_C = \mathcal{L}_{R} + \mathcal{L}_{R'} \quad \mathcal{L}_{R} = \|x-G(E(x))\|_1 \quad \mathcal{L}_{R'} = \|z-E(G(z))\|_1 \\
-                \mathcal{L}_{E,G}^* = (1-\alpha)\mathcal{L}_{E,G} + \alpha \mathcal{L}_{C}
-                $$
-            </div>
-
-            <!-- Generative: Distribution mapping -->
-
-            <!-- Mix: EfficientAD -->
-
-            <div id="Mix-EfficientAD" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Mix: EfficientAD</h1>
-                <div>
-                    <div style="width: 40%; display: inline-block; vertical-align: top;">
-                        Components:
-                        <ul>
-                            &nbsp;<br/>
-                            &nbsp;<br/>
-                            <li>
-                                Teacher-Student:
-                                <ul>
-                                    <li>local (feature-based)</li>
-                                    <li>example-mining loss</li>
-                                </ul> 
-                            </li>
-                            &nbsp;<br/>
-                            &nbsp;<br/>
-                            &nbsp;<br/>
-                            <li>
-                                Auto-Encorder:
-                                <ul>
-                                    <li>global (logical)</li>
-                                    <li>student generating also AE output</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <center style="width: 55%; display: inline-block;">
-                        <img src="images/EfficientAD_local.png" width="550"/>
-                        <img src="images/EfficientAD_global.png" width="550"/>
-                        <cit style="width: 500px;">EfficientAD: Accurate Visual Anomaly Detection at Millisecond-Level Latencies</cit>
-                    </center>
-                </div>
-            </div>
-
-            <!-- Generative: DSR -->
-
-            <div id="Mix-DSR" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Quantized features: DSR</h1>
-                <center>
-                    Reconstruct both generic and specific images<br/>
-                    &nbsp;<br/>
-                    Encode high-level features in a codebook<br/>
-                    &nbsp;<br/>
-                    <img src="images/DSR.png" width="900"/>
-                    <cit>DSR – A dual subspace re-projection network for surface anomaly detection</cit>
-                    &nbsp;<br/>
-                    U-Net for anomaly-mask synthesis<br/>
-                    &nbsp;<br/>
-                    U-Net for anomaly-mask upsampling<br/>
-                </center>
-            </div>
-
-            <div id="Mix-DSR-detail" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>DSR: generate normal images</h1>
-                <center>
-                    <img src="images/DSR-encoder.png" width="900"/>
-                    <img src="images/DSR-decoder.png" width="900"/>
-                    <img src="images/DSR-generated.png" width="900"/>
-                    <cit>DSR – A dual subspace re-projection network for surface anomaly detection</cit>
-                </center>
-            </div>
-
-            <!-- Conclusions -->
-
-            <div id="Conclusions" class="step" data-rel-x="1500" data-rel-y="0">
-                <h1>Conclusions</h1>
-                <h2>Anomaly Detection in the industry</h2>
-                <center style="font-size: 130%; margin-top: 70px;">
-                    <br/>
-                    Deep-Learning provides informative embeddings.
-                    <br/>
-                    &nbsp;<br/>
-                    Models are becoming more and more flexible...
-                    <br/>
-                    ...by means of fast adaptation on the edge.
-                </center>
-                <center style="font-size: 500%; color: white; margin-top: 70px;">
-                    Qs?
-                </center>
-            </div>
-
-            <!--Scaling out  -->
-            <div id="Empty" class="step end" data-x="15000" data-y="2000" data-scale="20">
             </div>
 
         </div>
